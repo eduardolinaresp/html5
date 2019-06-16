@@ -1,0 +1,59 @@
+   <!DOCTYPE html>
+   <html>
+   <head>
+       <title>Not empty</title>
+   </head>
+   <body>
+   <form method="post" name="formname" action="test.html">
+    <input type="input" id="username" name="userName" value="">
+    <input type="password" id="password" name="Password" value="">
+    <button type="button" name="adam" id="login">login</button>
+       <button type="button" name="adam" id="sendMe">send me my        password</button>
+       <button type="button" name="adam" id="logout">logout</button>
+   <form>
+    <script>
+
+   var buttons = document.getElementsByName('adam');
+   var buttonsLength = buttons.length;
+
+   for(var i=0;i<buttonsLength; i++){
+    buttons[i].addEventListener('click', clickResponse, false);
+   };
+
+   function clickResponse(){
+    var u, p;
+    u=document.getElementById('username');
+    p=document.getElementById('password');
+    switch(this.id) {
+        case 'logout':
+            alert('Logout '+this.id);
+            break;
+        case 'login':
+            if(u.value.length==0 ||
+                p.value.length==0) {
+                   alert("Please enter your unsername and password.");
+                   if(u.length==0) {
+                    u.focus();
+                   } else {
+                    p.focus();
+                   }
+               } else {
+                alert('submit');
+                //document.forms.formname.submit();
+               }
+            break;
+        case 'sendMe':
+            if(u.value.length==0) {
+                   alert("Please enter your username.");
+                   u.focus();
+                   return false;
+               } else {
+                alert('submit');
+                //document.forms.formname.submit();
+               }
+            break;
+    }
+   };
+
+   </script>
+   </body>

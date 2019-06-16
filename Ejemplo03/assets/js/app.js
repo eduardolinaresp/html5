@@ -7,7 +7,7 @@
       // Loop over them and prevent submission
       var validation = Array.prototype.filter.call(forms, function(form) {
         form.addEventListener('submit', function(event) {
-          if (form.checkValidity() === false) {
+          if (-form.checkValidity() === false) {
             event.preventDefault();
             event.stopPropagation();
           }
@@ -15,12 +15,17 @@
         }, false);
       });
     }, false);
-  })();
 
+
+
+
+  })();
 
   
   $("#validationCustom01").val();
 
+
+  
   $( document ).ready(function() {
     console.log( "ready!" );
 });
